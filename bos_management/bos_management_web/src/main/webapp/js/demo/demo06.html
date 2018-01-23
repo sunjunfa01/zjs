@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Basic Layout - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
+	<script type="text/javascript" src="../jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+	<link rel="stylesheet" href="../ztree/zTreeStyle.css" type="text/css">
+	<script type="text/javascript" src="../ztree/jquery.ztree.all-3.5.js"></script>
+</head>
+<script type="text/javascript">
+	function addTabs() {
+		 /* 判断是否添加过这个选项框  根据标题来判断 返回boolean值 */
+		var aa= $('#tt').tabs("exists",'选项01')
+		if(aa){
+			$('#tt').tabs("select",'选项01') 
+			alert("选择了以前的")/*选定之前打开过的选项01  */
+		}else{
+			$('#tt').tabs('add',{    /* 添加一个选项01 */
+			    title:'选项01',    
+			    content:'内容01',    
+			});  
+		}
+	}
+	;
+	var setting = {
+			// 参数1 :  节点的ID
+			// 参数2 :  ztree的配置参数
+			// 参数3 :  具体的树的数据
+		data: {
+			simpleData: {
+				enable: true
+			}
+		}
+	};/* pId 0 等于根节点    id  等于自己的节点   name是  节点的名字 */
+	var zNodes =[{name : "节点1",id:"001",pId:"0"}
+	    ,{name : "节点2",id:"002",pId:"001"}
+	    ,{name : "节点3",id:"003",pId:"002"} 
+	];
+	$(function(){
+		$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+	})
+</script>
+
+<body class="easyui-layout" ><!--铺满屏幕  -->
+	
+		<div data-options="region:'north'" style="height:50px"></div>
+		<div data-options="region:'south',split:true" style="height:50px;"></div>
+		<div data-options="region:'west',split:true" title="菜单" style="width:230px;">
+			<!--  data-options="fit:true"属性data-options    true自动填充父类 -->
+			<div class="easyui-accordion" data-options="fit:true"> 
+				<div title="面板1" >
+					<a id="btn" href="#" class="easyui-linkbutton" onclick="addTabs()"
+					data-options="iconCls:'icon-search'">添加选项卡</a>
+				</div>
+				<div title="面板2">
+				<div class="content_wrap">
+						<div class="zTreeDemoBackground left">
+							<ul id="treeDemo" class="ztree"></ul>
+						</div>
+					</div>
+				</div>
+				<div title="面板3">面板3</div>
+			</div>
+		</div>
+		<div  data-options="region:'center',title:'内容显示',iconCls:'icon-ok'">
+			<div id ="tt" class="easyui-tabs" style="width:700px;height:250px" data-options="fit:true">
+				<div title="选项一" ></div>
+			</div>
+		</div>
+</body>
+</html>

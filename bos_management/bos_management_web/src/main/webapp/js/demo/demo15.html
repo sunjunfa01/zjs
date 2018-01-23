@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Basic Layout - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
+	<script type="text/javascript" src="../jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+	<link rel="stylesheet" href="../ztree/zTreeStyle.css" type="text/css">
+	<!--所有的JS插件都是依赖于JQuery,所以导入资源的时候,必须先导入jQuery -->
+	<script type="text/javascript" src="../ztree/jquery.ztree.all-3.5.js"></script>
+	<script type="text/javascript" src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+</head>
+<script type="text/javascript">
+ /* $('#cc').combobox({    
+    url:'get_data.json',    
+    valueField:'id',    
+    textField:'name'   
+});  
+ */
+</script>
+
+<body  ><!--下拉应用  --><!--很多控件都可以发起网络请求,AJAX  -->
+	
+	<input id="cc" class="easyui-combobox" name="dept"   
+    data-options="valueField:'id',textField:'name',url:'get_data.json'" /> 
+    
+   <!--  <input id="cc" name="dept" > --><!--搞不定o  --> 
+	
+</body>
+</html>

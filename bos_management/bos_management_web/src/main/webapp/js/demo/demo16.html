@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Basic Layout - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
+	<script type="text/javascript" src="../jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+	<link rel="stylesheet" href="../ztree/zTreeStyle.css" type="text/css">
+	<!--所有的JS插件都是依赖于JQuery,所以导入资源的时候,必须先导入jQuery -->
+	<script type="text/javascript" src="../ztree/jquery.ztree.all-3.5.js"></script>
+	<script type="text/javascript" src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="../jquery.ocupload-1.1.2.js"></script>
+</head>
+<script type="text/javascript">
+ 	 $(function(){
+ 		   $("#btn").upload({
+ 			name: "myfile",
+ 		    action: "../../aa.action"
+ 		 }) 
+ 		 //$("#btn").upload()
+ 		 	
+ 	 })
+</script>
+<!--method  只能用post
+enctype = "multipart/form-data"
+《input type= “file”  必须要有name = “aa”》
+《iframe》是打开一个窗口  窗口的属性有个aa    而下面form的target 是说把form提交到这个框里好 记住这个属性 
+  -->
+<body  >
+	<!-- <iframe name="aa" style="display: none">  将框隐藏起来 -->
+	<iframe name="aa"></iframe>
+	<form target="aa" action="http://www.baidu.com" method="post" enctype="multipart/form-data">
+		<input type= "file" name= "aaa"><br>
+		<input type="submit" name = "bbb" value="提交">
+	</form>
+	<hr>
+	<input id="btn" type="button" value="提交">
+</body>
+</html>
